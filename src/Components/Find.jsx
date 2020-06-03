@@ -34,6 +34,7 @@ const Find = () => {
       <div className="user">
         <img src={`image/show/${user.picture}`} alt="profile"></img>
         <div className="name">{user.firstName} {user.lastName}</div>
+        <div className="essay">{user.essay}</div>
       </div>
     );
   };
