@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import AuthService from "../Services/AuthService";
-import Message from "./Message";
+import Alert from "./Alert";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = (props) => {
   const [user, setUser] = useState({ username: "", password: "" });
-  const [message, setMessage] = useState(null);
+  const [alert, setAlert] = useState(null);
   const authContext = useContext(AuthContext);
 
   const onChange = (e) => {
@@ -22,7 +22,7 @@ const Login = (props) => {
         authContext.setIsAuthenticated(isAuthenticated);
         props.history.push('/');
       } else {
-        setMessage(message);
+        setAlert(message);
       }
     })
   }
@@ -48,7 +48,7 @@ const Login = (props) => {
         ></input>
         <button type="submit">Log In</button>
       </form>
-      { message ? <Message message={message} /> : null }
+      { alert ? <Alert alert={alert} /> : null }
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 const getStyle = (props) => {
   let baseClass = "alert ";
-  if(props.message.error)
+  if(props.alert.error)
     baseClass = baseClass + "alert-danger"
   else {
     baseClass = baseClass + "alert-primary";
@@ -10,12 +10,12 @@ const getStyle = (props) => {
   return baseClass;
 }
 
-const Message = props => {
+const Alert = props => {
   return (
     <div className={getStyle(props)} role="alert">
-      { props.message.body }
+      { props.alert.body }
     </div>
   )
 }
 
-export default Message;
+export default Alert;

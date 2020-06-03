@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
-import Message from "../Components/Message";
+import Alert from "../Components/Alert";
 
 const Register = (props) => {
   const [user, setUser] = useState({
@@ -13,7 +13,7 @@ const Register = (props) => {
     sex: "male",
     essay: "",
   });
-  const [message, setMessage] = useState(null);
+  const [alert, setAlert] = useState(null);
   let timerID = useRef(null);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Register = (props) => {
     e.preventDefault();
     AuthService.register(user).then((data) => {
       const { message } = data;
-      setMessage(message);
+      setAlert(message);
       resetForm();
       if (!message.error) {
         timerID = setTimeout(() => {
@@ -116,7 +116,7 @@ const Register = (props) => {
         ></textarea>
         <button type="submit">Register</button>
       </form>
-      {message ? <Message message={message} /> : null}
+      {alert ? <Alert alert={alert} /> : null}
     </div>
   );
 };
