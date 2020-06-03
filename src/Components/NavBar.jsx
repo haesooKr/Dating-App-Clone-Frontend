@@ -43,9 +43,6 @@ const NavBar = (props) => {
         <Link to="/matches">
           <li className="nav-link">Matches</li>
         </Link>
-        <Link to="/messages">
-          <li className="nav-link">Messages</li>
-        </Link>
         <button type="button" className="btn-logout" onClick={onClickLogout}>
           Logout
         </button>
