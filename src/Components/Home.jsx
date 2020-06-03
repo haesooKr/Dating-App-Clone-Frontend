@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import ImageUpload from './ImageUpload';
 import { AuthContext } from '../Context/AuthContext'
 
@@ -11,8 +12,9 @@ const Home = () => {
       <>
         <div className="username">ID: {username}</div>
         <div className="fullName">Name: {firstName} {lastName}</div>
-        <div>{ essay }</div>
         { imageURL !== "" ? <img src={imageURL} alt="profile"/> : <ImageUpload />}
+        <div className="essay">{ essay }</div>
+        <Link to="/profile">Manage Profile</Link>
       </>
     )
   }
