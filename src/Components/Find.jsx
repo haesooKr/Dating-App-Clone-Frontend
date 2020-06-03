@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { AuthContext } from "../Context/AuthContext";
 
 const Find = () => {
   const [people, setPeople] = useState([]);
 
   async function findPeople() {
     await axios.get("/user/people").then((data) => {
-      console.log(data.data.people)
       setPeople(data.data.people);
     });
   }

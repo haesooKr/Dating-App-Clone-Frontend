@@ -15,7 +15,7 @@ const ImageUpload = () => {
       }
       fetchData();
     }
-  }, [fileName])
+  }, [fileName, setImageURL])
 
 
   const onChange = (e) => {
@@ -28,7 +28,7 @@ const ImageUpload = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("/image/upload", formData, {
+      await axios.post("/image/upload", formData, {
         headers: { 
           "Content-Type": "multipart/form-data",
         }

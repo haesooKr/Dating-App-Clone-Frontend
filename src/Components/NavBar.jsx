@@ -4,7 +4,7 @@ import AuthService from '../Services/AuthService';
 import { AuthContext } from '../Context/AuthContext';
 
 const NavBar = (props) => {
-  const { user, setUser, isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const { setUser, isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   const onClickLogout = () => {
     AuthService.logout().then(data => {
