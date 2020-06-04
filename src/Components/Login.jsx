@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthService from "../Services/AuthService";
 import Alert from "./Alert";
 import { AuthContext } from "../Context/AuthContext";
+import './scss/Login.scss';
 
 const Login = (props) => {
   const [user, setUser] = useState({ username: "", password: "" });
@@ -29,24 +30,27 @@ const Login = (props) => {
 
 
   return (
-    <div>
+    <div className="login">
       <form onSubmit={onSubmit}>
-        <h3>Please Log In</h3>
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          name="username"
-          onChange={onChange}
-          placeholder="Enter Username"
-        ></input>
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          name="password"
-          onChange={onChange}
-          placeholder="Enter Password"
-        ></input>
-        <button type="submit">Log In</button>
+        <img src="logo.png" alt="logo" />
+        <h4>Enter your credentials to login</h4>
+        <div>
+          <input
+            type="text"
+            name="username"
+            onChange={onChange}
+            placeholder="Enter Username"
+          ></input>
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            onChange={onChange}
+            placeholder="Enter Password"
+          ></input>
+        </div>
+        <button type="submit">Login</button>
       </form>
       { alert ? <Alert alert={alert} /> : null }
     </div>
