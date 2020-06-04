@@ -1,0 +1,80 @@
+@import './variables.scss';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: $height;
+
+  h1 {
+    font-size: 2rem;
+    color: $color-darker;
+  }
+
+  .fullName {
+    padding-bottom: 20px;
+    color: white;
+    font-size: 2rem;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 60%;
+  }
+
+  .logo {
+    background-color: #fff;
+  }
+
+  .essay {
+    margin: 10px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    text-shadow: 1px 1px 10px rgb(95, 95, 95);
+    padding: 10px 20px;
+    word-wrap: break-word;
+    font-size: 1rem;
+  }
+
+  .links {
+    padding-top: 10%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    a {
+      border: 1px solid rgb(255, 255, 255);
+      padding: 3px 5px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input[type="file"] {
+      display: none;
+    }
+    .custom-file-upload {
+        border: 1px solid #000;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+
+        span {
+          padding-left: 15px;
+        }
+    }
+
+    button {
+      border: 1px solid #000;
+      background-color: transparent;
+      margin-top: 10px;
+    }
+  }
+}

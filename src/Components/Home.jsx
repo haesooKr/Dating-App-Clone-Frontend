@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import ImageUpload from './ImageUpload';
 import { AuthContext } from '../Context/AuthContext'
+import './scss/Home.scss';
 
 const Home = () => {
   const { user, isAuthenticated, imageURL } = useContext(AuthContext);
@@ -10,19 +11,20 @@ const Home = () => {
     const { username, firstName, lastName, essay } = user;
     return (
       <>
-        <div className="username">ID: {username}</div>
-        <div className="fullName">Name: {firstName} {lastName}</div>
+        <div className="fullName">Welcome! {firstName} {lastName}</div>
         { imageURL !== "" ? <img src={imageURL} alt="profile"/> : <ImageUpload />}
         <div className="essay">{ essay }</div>
-        <Link to="/profile">Manage Profile</Link>
+        <div className="links">
+          <Link to="/profile">Manage Profile</Link>
+          <Link to="/delete">Delete Account</Link>
+        </div>
       </>
     )
   }
 
   return (
-    <div>
-      <h1>Dating App</h1>
-      { isAuthenticated ? profile() : null}
+    <div className="home">
+      { isAuthenticated ? profile() : <img className="logo" src="logo.png" alt="logo"></img>}
     </div>
   )
 }
