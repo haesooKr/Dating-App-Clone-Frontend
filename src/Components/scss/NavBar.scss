@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.navBar {
+  width: 100%;
+  background-color: $color-darker;
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+
+    li {
+      padding: 10px 0;
+      font-size: 2rem;
+      color: $color-medium;
+
+      :active {
+        transform: rotate(10deg);
+        color: $color-bright;
+      }
+    }
+
+    button {
+      all: unset;
+      color: $color-medium;
+      font-size: 2rem;
+    }
+  }
+}
