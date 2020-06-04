@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 import Alert from "../Components/Alert";
+import './scss/Register.scss';
 
 const Register = (props) => {
   const [user, setUser] = useState({
@@ -54,46 +55,39 @@ const Register = (props) => {
   };
 
   return (
-    <div>
+    <div className="register">
       <form onSubmit={onSubmit}>
-        <h3>Please Register In</h3>
-        <label htmlFor="username">Username: </label>
+        <img src="logo.png" alt="logo" />
         <input
           type="text"
           name="username"
-          id="username"
           value={user.username}
           onChange={onChange}
           placeholder="Enter Username"
         ></input>
-        <label htmlFor="password">Password: </label>
         <input
           type="password"
           name="password"
-          id="password"
           value={user.password}
           onChange={onChange}
           placeholder="Enter Password"
         ></input>
-        <label htmlFor="firstName">First Name: </label>
-        <input
-          type="firstName"
-          name="firstName"
-          id="firstName"
-          value={user.firstName}
-          onChange={onChange}
-          placeholder="Enter firstName"
-        ></input>
-        <label htmlFor="lastName">Last Name: </label>
-        <input
-          type="lastName"
-          name="lastName"
-          id="lastName"
-          value={user.lastName}
-          onChange={onChange}
-          placeholder="Enter lastName"
-        ></input>
-        <label htmlFor="email">Email: </label>
+        <div>
+          <input
+            type="firstName"
+            name="firstName"
+            value={user.firstName}
+            onChange={onChange}
+            placeholder="First Name"
+          ></input>
+          <input
+            type="lastName"
+            name="lastName"
+            value={user.lastName}
+            onChange={onChange}
+            placeholder="Last Name"
+          ></input>
+        </div>
         <input
           type="email"
           name="email"
@@ -102,17 +96,16 @@ const Register = (props) => {
           onChange={onChange}
           placeholder="Enter Email"
         />
-        <label htmlFor="sex">Sex: </label>
         <select name="sex" onChange={onChange} id="sex">
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
-        <label htmlFor="essay">Essay: </label>
         <textarea
           name="essay"
           onChange={onChange}
           id="essay"
           style={{ resize: "none" }}
+          placeholder="Introduce Yourself"
         ></textarea>
         <button type="submit">Register</button>
       </form>
