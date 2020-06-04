@@ -1,0 +1,55 @@
+@import './variables.scss';
+
+.find {
+  height: $height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+
+    img {
+      color: white;
+      text-decoration: line-through;
+      text-align: center;
+      width: 60%;
+      border-radius: 50%;
+    }
+    .name {
+      color: white;
+      font-size: 2rem;
+    }
+    .essay {
+      margin: 10px 30px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      text-shadow: 1px 1px 10px rgb(95, 95, 95);
+      padding: 10px 20px;
+      word-wrap: break-word;
+      font-size: 1rem;
+    }
+  }
+
+  .buttons {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+
+    button {
+      all: unset;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+
+  .nomore {
+    font-size: 3rem;
+    color: white;
+  }
+}

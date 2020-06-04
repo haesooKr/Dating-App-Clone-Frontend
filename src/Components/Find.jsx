@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './scss/Find.scss';
 
 const Find = () => {
   const [people, setPeople] = useState([]);
@@ -15,6 +16,10 @@ const Find = () => {
   }, []);
 
   const onClick = (e) => {
+    let type = e.target.value;
+    if(!type){
+      type = e.target.parentNode.value;
+    }
     if(people.length > 0){
       async function action(type){
         await axios.post(`/user/${type}`, {
@@ -22,7 +27,7 @@ const Find = () => {
           firstName: people[0].firstName
         })
       }
-      action(e.target.value);
+      action(type);
 
       setPeople(people.slice(1));
     }
@@ -32,7 +37,7 @@ const Find = () => {
     const user = people[0];
     return (
       <div className="user">
-        <img src={`image/show/${user.picture}`} alt="profile"></img>
+        <img src={`image/show/${user.picture}`} alt="Profile"></img>
         <div className="name">{user.firstName} {user.lastName}</div>
         <div className="essay">{user.essay}</div>
       </div>
@@ -40,12 +45,15 @@ const Find = () => {
   };
 
   return (
-    <div>
-      {people.length >= 1 ? <User /> : <div>No More User</div>}
-
-      <button onClick={onClick} value="like">Like</button>
-      <button onClick={onClick} value="dislike">Dislike</button>
-      <button onClick={onClick} value="superlike">SuperLike</button>
+    <div className="find">
+      {people.length >= 1 ? <User /> : <div className="nomore">No More User</div>}
+      {people.length >= 1 ? 
+        <div className="buttons">
+          <button onClick={onClick} value="like"><i className="far fa-thumbs-up"></i></button>
+          <button onClick={onClick} value="dislike"><i className="far fa-thumbs-down"></i></button>
+          <button onClick={onClick} value="superlike"><i className="far fa-grin-hearts"></i></button>
+        </div>
+      : null}
     </div>
   );
 };
