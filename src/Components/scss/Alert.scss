@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+// alert
+.alert-danger {
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  color: red;
+}
+
+
+.alert-primary {
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: $color-bright;
+  color: white;
+}
