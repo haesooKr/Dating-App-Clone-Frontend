@@ -13,9 +13,13 @@
   }
 
   .fullName {
-    padding-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0;
     color: white;
-    font-size: 2rem;
+    font-weight: 200;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 10px rgb(247, 0, 255);
   }
 
   img {
@@ -28,13 +32,14 @@
   }
 
   .essay {
+    border-radius: 5px;
     margin: 10px 30px;
     border: 2px solid rgba(255, 255, 255, 0.5);
     color: white;
     text-shadow: 1px 1px 10px rgb(95, 95, 95);
     padding: 10px 20px;
     word-wrap: break-word;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .links {
@@ -46,6 +51,7 @@
     flex-direction: row;
 
     a {
+      border-radius: 5px;
       border: 1px solid rgb(255, 255, 255);
       padding: 3px 5px;
       color: white;

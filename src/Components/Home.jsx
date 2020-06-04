@@ -11,8 +11,8 @@ const Home = () => {
     const { username, firstName, lastName, essay } = user;
     return (
       <>
-        <div className="fullName">Welcome! {firstName} {lastName}</div>
         { imageURL !== "" ? <img src={imageURL} alt="profile"/> : <ImageUpload />}
+        <div className="fullName">{firstName} {lastName}</div>
         <div className="essay">{ essay }</div>
         <div className="links">
           <Link to="/profile">Manage Profile</Link>
