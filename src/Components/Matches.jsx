@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import axios from "axios";
+import './scss/Matches.scss';
 
 const Matches = () => {
   const [matches, setMatches] = useState([]);
@@ -28,15 +29,16 @@ const Matches = () => {
       return (
         <div className="match" key={index}>
           <div className="name">{match.firstName} {match.lastName}</div>
-          <img src={`/image/show/${match.picture}`} alt="profile"></img>
-          <Link to={`/room/${matchedRoom(user.rooms, match.rooms)}`}>링크</Link>
+          <img src={ match.picture ? `/image/show/${match.picture}` : `logo.png` } alt="profile"></img>
+          <div className="essay">{match.essay}</div>
+          <Link to={`/room/${matchedRoom(user.rooms, match.rooms)}`}><i className="fas fa-comment-dots"></i></Link>
         </div>
       )
     })
   };
 
   return (
-    <div>
+    <div className="matches">
       <h1>Matched</h1>
       <People />
     </div>

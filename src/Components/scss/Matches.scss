@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+.matches {
+  color: white;
+  background-color: $color-brighter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 20px 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.500);
+    border-radius: 100%;
+  }
+
+  .match {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.500);
+    border-radius: 100%;
+    margin-bottom: 10px;
+
+    .name {
+      font-size: 1.2rem;
+      padding: 5px;
+    }
+
+    .essay {
+      margin-top: 5px;
+      font-weight: 200;
+      font-size: 0.8rem;
+      text-shadow: 1px 1px 10px rgb(95, 95, 95);
+      padding: 0 15%;
+    }
+
+    img {
+      width: 40%;
+      border-radius: 100%;
+      text-align: center;
+      font-size: 3rem;
+      background-color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 2rem;
+      color: white;
+    }
+  }
+}
