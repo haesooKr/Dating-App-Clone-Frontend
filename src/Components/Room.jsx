@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from '../Context/AuthContext';
 import Alert from './Alert';
+import './scss/Room.scss';
 
 import axios from "axios";
 
@@ -9,10 +11,15 @@ const Room = ( props ) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
 
+  const { user } = useContext(AuthContext);
+
   async function getMessages() {
     await axios.post("/user/room", { roomId }).then((data) => {
       setMessages(data.data.messages);
     });
+
+    const scroll = document.querySelector('.scroll');
+    scroll.scrollTop = scroll.scrollHeight;
   }
 
   async function sendMessage(){
@@ -30,9 +37,9 @@ const Room = ( props ) => {
   const ListMessages = () => {
     return messages.map((message, index) => {
       return (
-        <li key={index}>
-          <span className="sender">{message.sender}: </span>
-          <span className="content">{message.content}</span>
+        <li key={index} className={message.sender_username === user.username ? 'me' : null}>
+          <div className="sender"><span>{message.sender}</span></div>
+          <div className="content"><span>{message.content}</span></div>
         </li>
       )
     })
@@ -50,18 +57,16 @@ const Room = ( props ) => {
 
 
   return (
-    <div>
-      Messages
-      <button onClick={() => props.history.goBack()}>Back</button>
-      <ul>
+    <div className="room">
+      <h1>Messages</h1>
+      <button className="back" onClick={() => props.history.goBack()}><i className="fas fa-backspace"></i></button>
+      <ul className='scroll'>
         <ListMessages />
       </ul>
-      <input type="text" placeholder="Enter the message" value={message} onChange={onChange} onKeyUp={(e) => {
-        if(e.key === "Enter"){
-          sendMessage();
-        }
-      }}/>
-      <button onClick={onClick}>Enter</button>
+      <div className="chat">
+        <input type="text" placeholder="Enter the message" value={message} onChange={onChange}/>
+        <button className="send" onClick={onClick}><i className="fas fa-paper-plane"></i></button>
+      </div>
       { alert ? <Alert alert={alert} /> : null }
     </div>
   )

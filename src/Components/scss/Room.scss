@@ -1,0 +1,85 @@
+@import "./variables.scss";
+
+.room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: $height;
+
+  h1 {
+    padding: 10px 0;
+    color: white;
+  }
+
+  button.back {
+    all: unset;
+    position: absolute;
+    top: 58px;
+    left: 5px;
+    font-size: 2rem;
+    color: $color-bright;
+    background-color: $color-brighter;
+  }
+
+  ul {
+    width: 100%;
+    overflow: scroll;
+    padding: 10px;
+    flex: 1;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3px;
+
+      .sender span {
+        margin-left: 5px;
+        font-size: 0.7rem;
+        display: inline-block;
+      }
+      .content span {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: $color-darker;
+        color: white;
+      }
+
+      &.me {
+        align-items: flex-end;
+
+        .sender span {
+          display: none;
+        }
+        .content span {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  .chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-brighter;
+    width: 100%;
+    
+
+    input {
+      border: none;
+      padding: 10px 5px;
+      flex: 1
+    }
+
+    button {
+      all: unset;
+      border: none;
+      font-size: 1rem;
+      padding: 10px 10px;
+    }
+  }
+}
