@@ -4,6 +4,7 @@ import { AuthContext } from '../Context/AuthContext';
 
 const ImageUpload = () => {
   const [file, setFile] = useState();
+  const [upload, setUpload] = useState("Image Upload");
   const [fileName, setFileName] = useState("");
 
   const { imageURL, setImageURL } = useContext(AuthContext);
@@ -19,6 +20,8 @@ const ImageUpload = () => {
 
 
   const onChange = (e) => {
+    document.querySelector('#btn-upload').classList.remove('hidden');
+    setUpload(e.target.files[0].name);
     setFile(e.target.files[0]);
   }
 
@@ -40,8 +43,11 @@ const ImageUpload = () => {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <input type="file" name="file" onChange={onChange} id="profile-image"/>
-        <button type="submit">Upload</button>
+        <label for="file-upload" class="custom-file-upload">
+          <i class="fas fa-camera"></i><span>{upload}</span>
+        </label>
+        <input id="file-upload" type="file" name="file" onChange={onChange}/>
+        <button type="submit" id="btn-upload" className="hidden"><i class="fas fa-arrow-up"></i> UPLOAD</button>
 
         { imageURL ? <img src={imageURL} alt="profile"/> : null }
       </form>
