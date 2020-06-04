@@ -37,7 +37,7 @@ const Find = () => {
     const user = people[0];
     return (
       <div className="user">
-        <img src={`image/show/${user.picture}`} alt="Profile"></img>
+        <img src={ user.picture ? `/image/show/${user.picture}` : `logo.png` } alt="Profile"></img>
         <div className="name">{user.firstName} {user.lastName}</div>
         <div className="essay">{user.essay}</div>
       </div>
@@ -46,7 +46,7 @@ const Find = () => {
 
   return (
     <div className="find">
-      {people.length >= 1 ? <User /> : <div className="nomore">No More User</div>}
+      {people.length >= 1 ? <User /> : <div className="nomore"><span>Searching...</span></div>}
       {people.length >= 1 ? 
         <div className="buttons">
           <button onClick={onClick} value="like"><i className="far fa-thumbs-up"></i></button>
