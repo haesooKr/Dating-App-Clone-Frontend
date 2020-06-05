@@ -1,0 +1,27 @@
+.form-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+  #file-upload {
+    display: none;
+  }
+
+  label {
+    text-align: center;
+  }
+
+  .standard {
+    background-color: white;
+  }
+
+  button {
+    border: none;
+    color: white;
+    background-color: transparent;
+  }
+  
+
+}

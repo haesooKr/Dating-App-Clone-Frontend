@@ -58,29 +58,4 @@
       text-decoration: none;
     }
   }
-
-  form {
-    display: flex;
-    flex-direction: column;
-
-    input[type="file"] {
-      display: none;
-    }
-    .custom-file-upload {
-        border: 1px solid #000;
-        display: inline-block;
-        padding: 6px 12px;
-        cursor: pointer;
-
-        span {
-          padding-left: 15px;
-        }
-    }
-
-    button {
-      border: 1px solid #000;
-      background-color: transparent;
-      margin-top: 10px;
-    }
-  }
 }
