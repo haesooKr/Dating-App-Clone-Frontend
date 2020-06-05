@@ -21,7 +21,10 @@
     }
 
     button {
-      all: unset;
+      padding: 0;
+      margin: 0;
+      border: none;
+      background-color: transparent;
       color: $color-medium;
       font-size: 2rem;
     }
