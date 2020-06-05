@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from '../Context/AuthContext';
-import Alert from './Alert';
 import './scss/Room.scss';
 
 import axios from "axios";
 
 const Room = ( props ) => {
-  const [alert, setAlert] = useState(null);
   const [roomId, setRoomId] = useState(props.match.params.roomId)
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
@@ -25,7 +23,6 @@ const Room = ( props ) => {
   async function sendMessage(){
     await axios.post("/user/sendMessage", { roomId, content: message }).then((data) => {
       setMessage('');
-      setAlert(data.data);
       getMessages();
     })
   }
@@ -67,7 +64,6 @@ const Room = ( props ) => {
         <input type="text" placeholder="Enter the message" value={message} onChange={onChange}/>
         <button className="send" onClick={onClick}><i className="fas fa-paper-plane"></i></button>
       </div>
-      { alert ? <Alert alert={alert} /> : null }
     </div>
   )
 }

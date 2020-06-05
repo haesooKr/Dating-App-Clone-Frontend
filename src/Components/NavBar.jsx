@@ -9,7 +9,6 @@ const NavBar = (props) => {
 
   const onClickLogout = () => {
     const logout = window.confirm("Are you sure you want to logout?");
-    console.log(logout);
     if(logout){
       AuthService.logout().then(data => {
         if(data.success){

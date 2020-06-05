@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../Context/AuthContext';
+import './scss/ImageUpload.scss';
 
 const ImageUpload = () => {
   const [file, setFile] = useState();
@@ -21,8 +22,10 @@ const ImageUpload = () => {
 
   const onChange = (e) => {
     document.querySelector('#btn-upload').classList.remove('hidden');
-    setUpload(e.target.files[0].name);
-    setFile(e.target.files[0]);
+    if(e.target.files[0]){
+      setUpload(e.target.files[0].name);
+      setFile(e.target.files[0]);
+    }
   }
 
   const onSubmit = async (e) => {
@@ -42,14 +45,10 @@ const ImageUpload = () => {
   }
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <label for="file-upload" class="custom-file-upload">
-          <i class="fas fa-camera"></i><span>{upload}</span>
-        </label>
+      <form className="form-upload" onSubmit={onSubmit}>
         <input id="file-upload" type="file" name="file" onChange={onChange}/>
-        <button type="submit" id="btn-upload" className="hidden"><i class="fas fa-arrow-up"></i> UPLOAD</button>
-
-        { imageURL ? <img src={imageURL} alt="profile"/> : null }
+        <label htmlFor="file-upload">{ imageURL ? <img src={imageURL} alt="profile"/> : <img className="standard" src="logo.png" alt="profile"/> }</label>
+        <button type="submit" id="btn-upload" className="hidden"><i className="fas fa-arrow-up"></i> UPLOAD</button>
       </form>
     </>
   )
