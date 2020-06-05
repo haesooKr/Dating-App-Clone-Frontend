@@ -1,0 +1,96 @@
+@import './variables.scss';
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to right bottom, #03254e, #4d4974, #88719b, #c49ec1, #fecee9);;
+  height: $height;
+  color: white;
+
+  img {
+    margin-top: 50px;
+    border-radius: 100%;
+    width: 150px;
+  }
+
+  .username {
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+  }
+  .fullName {
+    text-align: center;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .essay {
+    margin-top: 10px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+
+    button {
+      all: unset;
+      margin-left: 5px;
+    }
+  }
+
+  
+  
+  .input-essay {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    textarea {
+      padding: 10px;
+      color: white;
+      resize: none;
+      display: block;
+      height: 100px;
+      text-align: center;
+      border: 1px solid white;
+      background-color: transparent;
+    }
+
+    ::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.500);
+    }
+    
+    :-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.500);  
+    }
+    
+    ::-moz-placeholder {  /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.500);
+    }
+    
+    :-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.500);
+    }
+    
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.500);
+    }
+
+    
+
+    .btns {
+      margin-top: 10px;
+      display: flex;
+
+      button {
+        flex: 1;
+        color: white;
+        border: 1px solid white;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .input-essay.hidden {
+    display: none;
+  }
+
+  
+}
