@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AuthService from "../Services/AuthService";
 import Alert from "./Alert";
 import { AuthContext } from "../Context/AuthContext";
-import './scss/Login.scss';
+import "./scss/Login.scss";
 
 const Login = (props) => {
   const [user, setUser] = useState({ username: "", password: "" });
@@ -11,23 +11,26 @@ const Login = (props) => {
 
   const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    AuthService.login(user).then(data => {
+    AuthService.login(user).then((data) => {
       const { isAuthenticated, user, message } = data;
-      if(isAuthenticated){
+      if (isAuthenticated) {
         authContext.setUser(user);
-        authContext.setImageURL(user.picture ? `/image/show/${user.picture}` : '');
+        authContext.setImageURL(
+          user.picture
+            ? `https://dating-app-clone.herokuapp.com/image/show/${user.picture}`
+            : ""
+        );
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push('/');
+        props.history.push("/");
       } else {
         setAlert(message);
       }
-    })
-  }
-
+    });
+  };
 
   return (
     <div className="login">
@@ -52,9 +55,9 @@ const Login = (props) => {
         </div>
         <button type="submit">Login</button>
       </form>
-      { alert ? <Alert alert={alert} /> : null }
+      {alert ? <Alert alert={alert} /> : null}
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
