@@ -4,13 +4,17 @@
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(to right bottom, #03254e, #4d4974, #88719b, #c49ec1, #fecee9);;
-  height: $height;
+  height: 100%;
   color: white;
 
   img {
     margin-top: 50px;
-    border-radius: 100%;
-    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 15vh;
+    width: 30vh;
+    height: 30vh;
+    max-width: 400px;
+    max-height: 400px;
   }
 
   .username {

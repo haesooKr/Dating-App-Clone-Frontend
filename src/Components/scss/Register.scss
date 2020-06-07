@@ -2,7 +2,8 @@
 
 .register {
   width: 100%;
-  height: $height;
+  height: 100%;
+  background-color: $color-brighter;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +41,9 @@
     }
 
     div {
-      display: flex;
+      input {
+        width: 50%;
+      }
     }
 
     select {
@@ -51,9 +54,9 @@
       padding: 10px 20px;
       border-radius: 100px;
 
-      ::after {
-        content: "안녕"
-      }
+      -moz-appearance:none; 
+      -webkit-appearance:none; 
+      appearance:none;
     }
 
     textarea {

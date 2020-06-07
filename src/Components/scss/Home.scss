@@ -1,11 +1,16 @@
 @import './variables.scss';
 
+
+
 .home {
+  background-color: $color-brighter;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: $height;
+  height: 100%;
+  
+
 
   h1 {
     font-size: 2rem;
@@ -23,8 +28,11 @@
   }
 
   img {
-    border-radius: 50%;
-    width: 60%;
+    border-radius: 20vh;
+    width: 40vh;
+    height: 40vh;
+    max-width: 400px;
+    max-height: 400px;
   }
 
   .logo {
