@@ -32,7 +32,11 @@ html, body {
   flex-direction: column;
   position: relative;
   width: 100%;
-  background-color: $color-brighter;
+  background-color: $color-brighter; 
+}
+
+.navBar+div {
+  overflow: auto;
 }
 
 .hidden {
