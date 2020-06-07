@@ -5,7 +5,6 @@ import "./scss/ImageUpload.scss";
 
 const ImageUpload = () => {
   const [file, setFile] = useState();
-  const [upload, setUpload] = useState("Image Upload");
   const [fileName, setFileName] = useState("");
 
   const { imageURL, setImageURL } = useContext(AuthContext);
@@ -24,7 +23,6 @@ const ImageUpload = () => {
   const onChange = (e) => {
     document.querySelector("#btn-upload").classList.remove("hidden");
     if (e.target.files[0]) {
-      setUpload(e.target.files[0].name);
       setFile(e.target.files[0]);
     }
   };
