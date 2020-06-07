@@ -7,12 +7,15 @@ import "./scss/Matches.scss";
 const Matches = () => {
   const [matches, setMatches] = useState([]);
 
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
 
   async function findMatches() {
     await axios
       .get("https://dating-app-clone.herokuapp.com/user/matches", { withCredentials: true })
       .then((data) => {
+        setUser({
+          ...user, rooms: data.data.rooms
+        })
         setMatches(data.data.matches);
       });
   }
