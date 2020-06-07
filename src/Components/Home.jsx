@@ -8,10 +8,10 @@ const Home = () => {
   const { user, isAuthenticated, imageURL } = useContext(AuthContext);
 
   const profile = () => {
-    const { username, firstName, lastName, essay } = user;
+    const { firstName, lastName, essay } = user;
     return (
       <>
-        { imageURL !== "" ? <img src={imageURL} alt="profile"/> : <ImageUpload />}
+       { imageURL !== "" ? <img src={imageURL} alt="profile"/> : <ImageUpload />}
         <div className="fullName">{firstName} {lastName}</div>
         <div className="essay">{ essay }</div>
         <div className="links">
