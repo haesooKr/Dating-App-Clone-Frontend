@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from '../Context/AuthContext';
 import axios from "axios";
 import "./scss/Find.scss";
 
 const Find = () => {
   const [people, setPeople] = useState([]);
+
+  const { user, setUser } = useContext(AuthContext);
 
   async function findPeople() {
     await axios
@@ -30,10 +33,12 @@ const Find = () => {
             _id: people[0]._id,
             firstName: people[0].firstName,
           }, { withCredentials: true }
-        );
+        ).then(data => setUser({
+          ...user, rooms: [...user.rooms, data.data.room]
+        }) );
       }
       action(type);
-
+      console.log(user);
       setPeople(people.slice(1));
     }
   };

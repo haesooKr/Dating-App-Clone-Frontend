@@ -17,7 +17,6 @@ export default {
       method: "post",
       credentials: 'include',
       body: JSON.stringify(user),
-      redirect: 'follow',
       headers: {
         "Content-Type": "application/json",
       },
